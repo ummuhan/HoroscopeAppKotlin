@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import androidx.lifecycle.Transformations.map
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.ummuhanoksuz.horoscopeappkotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         horoscopeArray= ArrayList()
         horoscopeCreate()
 
+        binding.recyclerView.layoutManager=LinearLayoutManager(this)
+        var adapterHoroscope=HoroscopeAdapter(horoscopeArray)
+        binding.recyclerView.adapter=adapterHoroscope
+      /* ListView
         var adapter=ArrayAdapter(
             applicationContext,
             android.R.layout.simple_list_item_1,
@@ -30,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         binding.listView.onItemClickListener= AdapterView.OnItemClickListener { adapterView, view, i, l ->
             var intent=Intent(MainActivity@this,HoroscopeDetail::class.java)
             intent.putExtra("Horoscope",horoscopeArray.get(i))
-            startActivity(intent)
-        }
+            startActivity(intent)}
+       */
     }
 
     fun horoscopeCreate(){
